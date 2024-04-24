@@ -49,16 +49,7 @@ class VideoProcessor(VideoTransformerBase):
         self.mpDraw = mp.solutions.drawing_utils
         self.mpPose = mp.solutions.pose
         self.pose = self.mpPose.Pose()
-        with open('calibration/calibration.pkl', 'rb') as f:
-            self.calibration = pickle.load(f)
-        self.mtx, self.dist = self.calibration
-
-    def undistort_frame(self, frame):
-        h, w = frame.shape[:2]
-        new_camera_mtx, roi = cv2.getOptimalNewCameraMatrix(self.mtx, self.dist, (w, h), 1, (w, h))
-        undistorted_frame = cv2.undistort(frame, self.mtx, self.dist, None, new_camera_mtx)
-        return undistorted_frame
-
+        
     def recv(self, frame):
         img = frame.to_ndarray(format="bgr24")
         # img = self.undistort_frame(img)
