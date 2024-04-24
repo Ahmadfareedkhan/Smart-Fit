@@ -1,0 +1,11 @@
+streamlit 
+streamlit_webrtc  
+mediapipe
+time
+math
+threading
+queue
+pyttsx3
+pickle
+numpy 
+opencv-python
