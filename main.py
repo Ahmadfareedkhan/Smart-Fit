@@ -7,16 +7,16 @@ import time
 import math
 import threading
 import queue
-import pyttsx3
+# import pyttsx3
 import pickle
 import numpy as np
 
-# Initialize TTS engine
-engine = pyttsx3.init()
-engine.setProperty('volume', 0.9)
-engine.setProperty('rate', 150)
-voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[1].id)
+# # Initialize TTS engine
+# engine = pyttsx3.init()
+# engine.setProperty('volume', 0.9)
+# engine.setProperty('rate', 150)
+# voices = engine.getProperty('voices')
+# engine.setProperty('voice', voices[1].id)
 
 # Speech command queue
 speech_queue = queue.Queue()
@@ -24,25 +24,25 @@ speech_queue = queue.Queue()
 # Thread safe lock
 lock = threading.Lock()
 
-def speech_processor():
-    while True:
-        item = speech_queue.get()
-        text = item['text']
-        repeat = item.get('repeat', 1)
-        delay = item.get('delay', 0)
+# def speech_processor():
+#     while True:
+#         item = speech_queue.get()
+#         text = item['text']
+#         repeat = item.get('repeat', 1)
+#         delay = item.get('delay', 0)
         
-        for _ in range(repeat):
-            engine.say(text)
-            engine.runAndWait()
-            if _ < repeat - 1:
-                time.sleep(delay)
+#         for _ in range(repeat):
+#             engine.say(text)
+#             engine.runAndWait()
+#             if _ < repeat - 1:
+#                 time.sleep(delay)
         
-        speech_queue.task_done()
+#         speech_queue.task_done()
 
-def speak(text, repeat=1, delay=0):
-    speech_queue.put({'text': text, 'repeat': repeat, 'delay': delay})
+# def speak(text, repeat=1, delay=0):
+#     speech_queue.put({'text': text, 'repeat': repeat, 'delay': delay})
 
-threading.Thread(target=speech_processor, daemon=True).start()
+# threading.Thread(target=speech_processor, daemon=True).start()
 
 class VideoProcessor(VideoTransformerBase):
     def __init__(self):

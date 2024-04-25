@@ -1,7 +1,6 @@
 streamlit 
 streamlit_webrtc  
 mediapipe
-pyttsx3
 numpy 
 opencv-contrib-python-headless
 
