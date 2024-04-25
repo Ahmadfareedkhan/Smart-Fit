@@ -3,5 +3,5 @@ streamlit_webrtc
 mediapipe
 pyttsx3
 numpy 
-# opencv-python-headless==4.5.5.62
+opencv-python-headless==4.5.5.62
 opencv-contrib-python
