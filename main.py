@@ -85,9 +85,13 @@ class VideoProcessor(VideoTransformerBase):
 
 
 # WebRTC configuration (optional, for specific network scenarios)
-rtc_config=RTCConfiguration(
-    {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
-)
+rtc_config = RTCConfiguration({
+    "iceServers": [
+        {"urls": ["stun:stun.l.google.com:19302"]},
+        {"urls": ["turn:your_turn_server_here"], "username": "your_username", "credential": "your_password"}
+    ]
+})
+
 
 webrtc_streamer(key="example", video_processor_factory=VideoProcessor, media_stream_constraints={
         'video': {
