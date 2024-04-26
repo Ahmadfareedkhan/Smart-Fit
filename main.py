@@ -88,7 +88,7 @@ class VideoProcessor(VideoTransformerBase):
 rtc_config = RTCConfiguration({
     "iceServers": [
         {"urls": ["stun:stun.l.google.com:19302"]},
-        {"urls": ["turn:your_turn_server_here"], "username": "your_username", "credential": "your_password"}
+        {"urls": ["turn:relay1.expressturn.com:3478"], "username": "efW0JWTTKTRB1KDP7M", "credential": "wXrZmFxZJMbqx1Ky"}
     ]
 })
 
