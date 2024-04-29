@@ -42,7 +42,9 @@ class VideoProcessor:
     def save_video(self, frames, output_path):
         height, width, layers = frames[0].shape
         size = (width, height)
-        out = cv2.VideoWriter(output_path, cv2.VideoWriter_fourcc(*'mp4v'), 10, size)
+        # out = cv2.VideoWriter(output_path, cv2.VideoWriter_fourcc(*'mp4v'), 10, size)
+        out = cv2.VideoWriter(output_path, cv2.VideoWriter_fourcc(*'avc1'), 10, size)
+
 
         for frame in frames:
             out.write(frame)
